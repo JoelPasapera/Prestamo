@@ -1,23 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. DATOS DE ENTRADA (Extraídos de las imágenes)
+    // 1. DATOS DE ENTRADA 
     const loanData = {
-        totalInstallments: 9,
-        installmentAmount: 634.76,
-        installmentsPaidByBrand: 2,
-        installmentsPaidByAbel: 1
+        cuotas: 9,
+        pagoMensual: 634.76,
+        pagadoPorDeslouv: 2,
+        pagadoPorAbel: 1
     };
 
     // 2. CÁLCULOS MATEMÁTICOS
-    const totalDebt = loanData.totalInstallments * loanData.installmentAmount;
+    const deudaTotal = loanData.cuotas * loanData.pagoMensual;
 
-    const paidByBrand = loanData.installmentsPaidByBrand * loanData.installmentAmount;
-    const paidByAbel = loanData.installmentsPaidByAbel * loanData.installmentAmount;
+    const paidByBrand = loanData.pagadoPorDeslouv * loanData.pagoMensual;
+    const paidByAbel = loanData.pagadoPorAbel * loanData.pagoMensual;
 
     const totalPaid = paidByBrand + paidByAbel;
-    const installmentsPaidTotal = loanData.installmentsPaidByBrand + loanData.installmentsPaidByAbel;
+    const installmentsPaidTotal = loanData.pagadoPorDeslouv + loanData.pagadoPorAbel;
 
-    const remainingInstallments = loanData.totalInstallments - installmentsPaidTotal;
-    const remainingDebt = remainingInstallments * loanData.installmentAmount;
+    const remainingInstallments = loanData.cuotas - installmentsPaidTotal;
+    const remainingDebt = remainingInstallments * loanData.pagoMensual;
 
     // 3. ACTUALIZAR EL HTML (DOM)
 
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currency: 'PEN'
     });
 
-    document.getElementById('totalDebt').textContent = formatter.format(totalDebt);
+    document.getElementById('deudaTotal').textContent = formatter.format(deudaTotal);
     document.getElementById('totalPaid').textContent = formatter.format(totalPaid);
     document.getElementById('remainingDebt').textContent = formatter.format(remainingDebt);
 
@@ -68,14 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. GENERAR TABLA DE PAGOS
     const tableBody = document.getElementById('scheduleBody');
 
-    for (let i = 1; i <= loanData.totalInstallments; i++) {
+    for (let i = 1; i <= loanData.cuotas; i++) {
         const row = document.createElement('tr');
 
         let status = '';
         let responsible = '';
         let statusClass = '';
 
-        if (i <= loanData.installmentsPaidByBrand) {
+        if (i <= loanData.pagadoPorDeslouv) {
             status = 'Pagado';
             responsible = 'Marca de Ropa';
             statusClass = 'status-paid';
@@ -93,9 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>Cuota ${i}</td>
             <td><span class="${statusClass}">${status}</span></td>
             <td>${responsible}</td>
-            <td>${formatter.format(loanData.installmentAmount)}</td>
+            <td>${formatter.format(loanData.pagoMensual)}</td>
         `;
 
         tableBody.appendChild(row);
     }
+
 });
