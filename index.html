@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado de Préstamo - Abel</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Reporte Detallado del Préstamo</h1>
+            <p class="subtitle">Análisis de pagos: Marca de Ropa vs. Abel</p>
+        </header>
+
+        <div class="summary-cards">
+            <div class="card total">
+                <h3>Deuda Total (con Intereses)</h3>
+                <p id="totalDebt">S/ 0.00</p>
+                <small>9 cuotas de S/ 634.76</small>
+            </div>
+            <div class="card paid">
+                <h3>Total Ya Pagado</h3>
+                <p id="totalPaid">S/ 0.00</p>
+                <small>3 cuotas completadas</small>
+            </div>
+            <div class="card pending">
+                <h3>Saldo Pendiente</h3>
+                <p id="remainingDebt">S/ 0.00</p>
+                <small>Lo que falta por pagar</small>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+
+            <div class="details-section">
+                <h2>Desglose de Responsabilidades</h2>
+                <ul class="payment-list">
+                    <li class="brand-pay">
+                        <span class="icon">🏢</span>
+                        <div class="info">
+                            <strong>Marca de Ropa</strong>
+                            <span>Pagó Cuotas 1 y 2</span>
+                        </div>
+                        <div class="amount" id="brandAmount">S/ 0.00</div>
+                    </li>
+                    <li class="abel-pay">
+                        <span class="icon">👤</span>
+                        <div class="info">
+                            <strong>Abel</strong>
+                            <span>Pagó Cuota 3</span>
+                        </div>
+                        <div class="amount" id="abelAmount">S/ 0.00</div>
+                    </li>
+                    <li class="future-pay">
+                        <span class="icon">📅</span>
+                        <div class="info">
+                            <strong>Futuro (Pendiente)</strong>
+                            <span>Cuotas 4 a la 9</span>
+                        </div>
+                        <div class="amount highlight" id="pendingAmount">S/ 0.00</div>
+                    </li>
+                </ul>
+
+                <div class="alert-box">
+                    <strong>Nota Importante:</strong>
+                    <p>El préstamo original fue de S/ 4,600 el 08/09/2025. La diferencia con el total a pagar (S/
+                        5,712.84) corresponde a los intereses del banco.</p>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <canvas id="loanChart"></canvas>
+            </div>
+        </div>
+
+        <div class="schedule-section">
+            <h2>Calendario de Pagos Restantes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cuota</th>
+                        <th>Estado</th>
+                        <th>Responsable</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+                <tbody id="scheduleBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

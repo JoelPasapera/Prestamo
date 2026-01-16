@@ -1,0 +1,198 @@
+:root {
+    --primary: #6A1B9A;
+    /* Morado tipo Yape */
+    --secondary: #9C27B0;
+    --light-bg: #F3F4F6;
+    --white: #FFFFFF;
+    --text-dark: #1F2937;
+    --text-gray: #6B7280;
+    --success: #10B981;
+    --danger: #EF4444;
+    --brand-color: #3B82F6;
+    /* Azul para la marca */
+    --abel-color: #F59E0B;
+    /* Naranja para Abel */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: var(--text-gray);
+    margin-top: 0;
+}
+
+/* Tarjetas */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border-top: 4px solid var(--primary);
+}
+
+.card h3 {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: var(--text-dark);
+}
+
+.card.pending p {
+    color: var(--danger);
+}
+
+.card.paid p {
+    color: var(--success);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.details-section,
+.chart-section {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Lista de Pagos */
+.payment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.payment-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.payment-list .icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.payment-list .info {
+    flex-grow: 1;
+}
+
+.payment-list .info strong {
+    display: block;
+}
+
+.payment-list .info span {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+
+.payment-list .amount {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.alert-box {
+    background-color: #FFF8E1;
+    border-left: 4px solid #FFC107;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Tabla */
+.schedule-section {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f9fafb;
+    color: var(--text-gray);
+    font-weight: 600;
+}
+
+.status-paid {
+    background-color: #D1FAE5;
+    color: #065F46;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.status-pending {
+    background-color: #FEE2E2;
+    color: #991B1B;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
