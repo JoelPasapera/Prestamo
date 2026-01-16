@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('brandAmount').textContent = formatter.format(paidByBrand);
     document.getElementById('abelAmount').textContent = formatter.format(paidByAbel);
-    document.getElementById('pendingAmount').textContent = formatter.format(remainingDebt);
-
+    // El pago pendiente para el mes siguiente es el que se paga usualmente mes a mes
+    document.getElementById('pendingAmount').textContent = loanData.pagoMensual; 
     // 4. GENERAR GRÁFICO (Chart.js)
     const ctx = document.getElementById('loanChart').getContext('2d');
     new Chart(ctx, {
@@ -100,3 +100,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
